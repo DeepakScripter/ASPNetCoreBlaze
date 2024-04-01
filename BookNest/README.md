@@ -74,11 +74,3 @@ YtBookStore is a web application for managing books, authors, genres, and publis
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for any bugs or feature requests.
 
-## License 📝
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-
-This updated README file provides detailed instructions on how to run the YtBookStore application, along with information about its technologies, project structure, contributing guidelines, and license. Feel free to adjust the content as needed!
-```
