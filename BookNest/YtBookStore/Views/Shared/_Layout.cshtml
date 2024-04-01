@@ -1,0 +1,54 @@
+﻿<!--
+    This HTML code defines the layout for a book store website.
+    It includes a navigation bar with links to different sections of the site, such as Genre, Author, Publisher, and Book.
+    The body content is rendered dynamically using the @RenderBody() directive.
+    The styles are customized to have a dark theme with white text for better contrast.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Store</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        a {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: white; /* Optionally, you can set the text color to white for better contrast */
+        }
+
+        nav {
+            padding: 10px; /* Corrected syntax for setting padding */
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> Book Store</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="/Genre/Add" class="nav-link">Genre</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Author/Add" class="nav-link">Author</a>
+            </li>
+            <li class="nav-item active">
+                <a href="/Publisher/Add" class="nav-link">Publisher</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/Book/Add" class="nav-link">Book</a>
+            </li>
+        </ul>
+
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

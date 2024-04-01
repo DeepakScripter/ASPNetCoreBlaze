@@ -1,0 +1,34 @@
+﻿// Configuration for running a .NET Core application with specific settings for IIS Express and application profiles
+{
+  "iisSettings": {
+    // IIS settings for authentication and ports
+    "windowsAuthentication": false, // Disable Windows authentication
+    "anonymousAuthentication": true, // Enable anonymous authentication
+    "iisExpress": {
+      // Configuration for IIS Express
+      "applicationUrl": "http://localhost:37290", // Application URL for HTTP
+      "sslPort": 44355 // SSL port
+    }
+  },
+  "profiles": {
+    // Application profiles
+    "YtBookStore": {
+      // Profile for YtBookStore
+      "commandName": "Project", // Command to run the project
+      "dotnetRunMessages": true, // Show detailed messages when running the project with 'dotnet run'
+      "launchBrowser": true, // Launch the browser when running the project
+      "applicationUrl": "https://localhost:7168;http://localhost:5168", // Application URLs (HTTP and HTTPS)
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development" // Environment variable for ASP.NET Core environment
+      }
+    },
+    "IIS Express": {
+      // Profile for IIS Express
+      "commandName": "IISExpress", // Command to run with IIS Express
+      "launchBrowser": true, // Launch the browser when running with IIS Express
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development" // Environment variable for ASP.NET Core environment
+      }
+    }
+  }
+}

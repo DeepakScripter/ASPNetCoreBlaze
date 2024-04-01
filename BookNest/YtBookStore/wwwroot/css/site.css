@@ -1,0 +1,22 @@
+/* Set the default font size for the HTML element to 14 pixels */
+html {
+    font-size: 14px;
+}
+
+/* Adjust font size to 16 pixels when viewport width is at least 768 pixels */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Set the minimum height of the HTML element to 100% */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Add a margin bottom of 60 pixels to the body element */
+body {
+    margin-bottom: 60px;
+}

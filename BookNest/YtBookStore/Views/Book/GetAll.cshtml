@@ -1,0 +1,47 @@
+﻿@model IEnumerable<YtBookStore.Models.Domain.Book> <!-- Define the model for this view -->
+
+@{
+}
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-dark" href="/Book/Add">+ Add more</a> <!-- Button to add a new book -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Books</h3>
+
+            <table  class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>Title</th> <!-- Table header for Title -->
+                        <th>Genre</th> <!-- Table header for Genre -->
+                        <th>Isbn</th> <!-- Table header for Isbn -->
+                        <th>Total Pages</th> <!-- Table header for Total Pages -->
+                        <th>Author</th> <!-- Table header for Author -->
+                        <th>Publisher</th> <!-- Table header for Publisher -->
+                        <th>Action</th> <!-- Table header for Action -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model){
+                    <tr>
+                        <td>@item.Title</td> <!-- Display Title -->
+                        <td>@item.GenreName</td> <!-- Display Genre -->
+                        <td>@item.Isbn</td> <!-- Display Isbn -->
+                        <td>@item.TotalPages</td> <!-- Display Total Pages -->
+                        <td>@item.AuthorName</td> <!-- Display Author -->
+                        <td>@item.PublisherName</td> <!-- Display Publisher -->
+                        <td>
+                            <a class="btn btn-success" href="/Book/Update?id=@item.Id"><i class="bi bi-pen"></i></a> | <!-- Button to update book -->
+                            <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Book/Delete?id=@item.Id"><i class="bi bi-trash"></i></a> <!-- Button to delete book -->
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

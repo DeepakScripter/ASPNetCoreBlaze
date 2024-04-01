@@ -1,0 +1,37 @@
+﻿@model IEnumerable<YtBookStore.Models.Domain.Author> <!-- Define the model for this view -->
+
+@{
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-dark" href="/Author/Add">+ Add more</a> <!-- Button to navigate to the Add Author page -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Authors</h3>
+
+            <table  class="table table-stripped table-bordered table-dark"> <!-- Table to display the list of authors -->
+                <thead>
+                    <tr>
+                        <th>AuthorName</th> <!-- Table header for AuthorName -->
+                        <th>Action</th> <!-- Table header for Actions -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model){ <!-- Loop through each author in the model -->
+                    <tr>
+                        <td>@item.AuthorName</td> <!-- Display the AuthorName -->
+                        <td>
+                                <a class="btn btn-success" href="/Author/Update?id=@item.Id"> <i class="bi bi-pen"></i> Edit</a> | <!-- Button to edit the author -->
+                                <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Author/Delete?id=@item.Id"><i class="bi bi-trash"></i> Delete</a> <!-- Button to delete the author -->
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
