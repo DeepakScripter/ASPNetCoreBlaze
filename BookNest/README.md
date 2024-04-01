@@ -8,7 +8,7 @@ YtBookStore is a web application for managing books, authors, genres, and publis
 1. **Clone the project:**
 
    ```bash
-   git clone https://github.com/rd003/YtBookStore.git
+   git clone (https://github.com/rd003/YtBookStore.git](https://github.com/DeepakScripter/ASPNetCoreBlaze/tree/main/BookNest)
    ```
 
 
