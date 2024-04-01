@@ -1,0 +1,361 @@
+﻿@model FuelCostCalculator.Models.CalculatorViewModel
+@{
+    ViewData["Title"] = "Fuel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    .border-success {
+        border: 1px solid #0248B9 !important;
+        border-radius: 100%;
+    }
+
+    .topCenter {
+        margin-top: 20%;
+    }
+
+    .input-group-text {
+        border: 1px solid #0248B9 !important;
+    }
+
+    .form-control {
+        border: 1px solid #0248B9 !important;
+        height: calc(1.5em + 0.75rem + 13px) !important;
+        font-weight: bold;
+        color: #0248B9;
+        font-size: 20px;
+    }
+
+        .form-control:focus {
+            border: 2px solid #0248B9 !important;
+        }
+
+    .bg-title {
+        background-color: #0248B9 !important;
+    }
+
+    .bg-table {
+        background-color: #c2d1ea !important;
+    }
+
+    span, label, .TotalfuelCost {
+        color: #0248B9 !important;
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: #0248B9 !important;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <div class="card border-success topCenter">
+                <div class="card-header bg-title">
+                    <span class="text-white font-18">ALL TYPE CALCULATOR</span>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-pills m-t-30 m-b-40">
+                        <li class="nav-item">
+                            <a href="#navpills-1" id="tab1" class="nav-link active" data-toggle="tab" aria-expanded="false">@*<img src="~/CustomImages/fuel.png" height="20" />*@ FUEL COST CALCULATOR</a>
+                        </li>
+
+                        <li class="nav-item"> <a href="#navpills-2" id="tab2" class="nav-link" data-toggle="tab" aria-expanded="false">@*<img src="~/CustomImages/age.png" height="20"/>*@ AGE CALCULATOR</a> </li>
+                        @*<li class="nav-item"> <a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">AGE DIFFERENCE CALCULATOR</a> </li>*@
+                    </ul>
+                    <hr style="border:1px solid #0248B9" />
+                    <div class="tab-content br-n pn">
+                        <div id="navpills-1" class="tab-pane active">
+                            <div class="row mt-3">
+                                <div class="col-lg-6 col-sm-12">
+                                    <form method="post" id="fuelCalculatorFormId" asp-controller="Fuel" asp-action="Index">
+                                        <input type="hidden" asp-for="fuelModel.IsFuelCalculator" value="true" />
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14">FUEL TYPE</label>
+                                            <div class="col-sm-7">
+                                                <button class="btn text-white" style="background-color: #0248B9 !important"> PETROL </button>
+                                                <button type="button" class="btn btn-info" disabled data-mdb-toggle="button" autocomplete="off">
+                                                    DIESEL
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14">DAILY DISTANCE TRAVELLED</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"><img src="~/CustomImages/distance.png" width="30" /></span>
+                                                    <input type="text"
+                                                           class="form-control" asp-for="fuelModel.DailyDistenceTravel"
+                                                           aria-label="Amount (to the nearest dollar)" autofocus />
+
+                                                    <span class="input-group-text font-bold font-14" style="padding-left: 1.5rem;"><span style="padding-right: 17px;">KM</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14">MILEAGE</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group mb-3">
+
+                                                    <span class="input-group-text"><img src="~/CustomImages/mileage.png" height="30" /></span>
+                                                    <input type="text"
+                                                           class="form-control" asp-for="fuelModel.Mileage"
+                                                           aria-label="Amount (to the nearest dollar)" />
+                                                    <span class="input-group-text font-bold font-14">KM/LTR</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14">FUEL COST</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"> <img src="~/CustomImages/Rupee-Symbol-SVG-sooergn3.png" height="30" /></span>
+                                                    <input type="text"
+                                                           class="form-control" asp-for="fuelModel.FuelCost"
+                                                           aria-label="Amount (to the nearest dollar)" />
+                                                    <span class="input-group-text font-bold font-14" style="padding-left: 1.5rem;"><span style="padding-right: 17px;">₹/L</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14"></label>
+                                            <div class="col-sm-7">
+                                                <div class="row">
+                                                    <div class="col-sm-6"><button class="btn text-white" style="background-color: #0248B9 !important;width:100%" type="submit"><i class="fa fa-calculator"></i> CALCULATE </button>&nbsp;</div>
+                                                    <div class="col-sm-6"><button class="btn text-white" style="background-color: #0248B9 !important;width:100%" type="button" onClick="refreshPage()"><i class="fa fa-spinner"></i> RESET </button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    @if (Model.fuelModel.IsCalculated)
+                                    {
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14"></label>
+                                            <div class="col-sm-7">
+
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered" style="margin-top: 6%;">
+                                            <thead class="bg-title text-white">
+                                                <tr>
+                                                    <th scope="col" class="font-weight-bold font-16">Cost</th>
+                                                    <th scope="col" class="font-weight-bold font-16">Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Daily Fuel Cost</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">₹@Model.fuelModel.DailyFuelCost</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Monthly Fuel Cost</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">₹@Model.fuelModel.MonthlyFuelCost</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Yearly Fuel Cost</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">₹@Model.fuelModel.YearlyFuelCost</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="navpills-2" class="tab-pane">
+                            <div class="row mt-3">
+                                <div class="col-lg-6 col-sm-12">
+                                    <form method="post" id="ageCalculatorFormId" asp-controller="Fuel" asp-action="Index">
+                                        <input type="hidden" asp-for="ageModel.IsAgeCalculator" value="true" />
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-16">Today's Date</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group input-group-md">
+                                                    <input class="form-control txtborder" readonly type="text" asp-format="{0:MM/dd/yyyy}" placeholder="DD/MM/YYYY" autocomplete="off" asp-for="ageModel.AgeAtTheDateOf" />
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text bg-radiospan AnsiSpan hide" id="basic-addon2">2300 DTP~434 </span>
+                                                        <span class="input-group-text bg-radiospan CmsSpan hide" id="basic-addon2">Box 6</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-16">Date Of Birth</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group input-group-md">
+                                                    <input class="form-control date-picker txtborder" type="text" asp-format="{0:MM/dd/yyyy}" placeholder="DD/MM/YYYY" autocomplete="off" asp-for="ageModel.DateOfBirth" />
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text bg-radiospan AnsiSpan hide" id="basic-addon2">2300 DTP~434 </span>
+                                                        <span class="input-group-text bg-radiospan CmsSpan hide" id="basic-addon2">Box 6</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14"></label>
+                                            <div class="col-sm-7">
+                                                <div class="row">
+                                                    <div class="col-sm-6"><button class="btn text-white" style="background-color: #0248B9 !important;width:100%" type="submit"><i class="fa fa-calculator"></i> CALCULATE </button>&nbsp;</div>
+                                                    <div class="col-sm-6"><button class="btn text-white" style="background-color: #0248B9 !important;width:100%" type="button" onClick="refreshPage()"><i class="fa fa-spinner"></i> RESET </button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    @if (Model.ageModel.IsAgeCalculator)
+                                    {
+                                        <table class="table table-bordered">
+                                            <thead class="bg-title text-white">
+                                                <tr>
+                                                    <th colspan="2" class="font-weight-bold font-16 text-center">@Model.ageModel.TotalAges</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Total Months</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">@Model.ageModel.AgeInMonths</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Total Weeks</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">@Model.ageModel.AgeInWeeks</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Total Hours</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">@Model.ageModel.AgeInHours</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Total Minutes</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">@Model.ageModel.AgeInMinutes</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="TotalfuelCost font-weight-bold font-16">Total Seconds</th>
+                                                    <td class="TotalfuelCost font-weight-bold font-16">@Model.ageModel.AgeInSeconds</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="navpills-3" class="tab-pane">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <form method="post" id="ageDiCalculatorFormId" asp-controller="Fuel" asp-action="Index">
+                                        <input type="hidden" asp-for="ageDifferenceModel.IsAgeDifference" value="true" />
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14">First Person Name & Date</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                    <input type="text"
+                                                           class="form-control" asp-for="ageDifferenceModel.FirstPersonName"
+                                                           aria-label="Amount (to the nearest dollar)" autofocus />
+
+                                                    <span class="input-group-text font-bold font-14" style="padding-left: 1.5rem;"><span style="padding-right: 17px;">KM</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-16">Today's Date</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group input-group-md">
+                                                    <input class="form-control date-picker txtborder" type="text" asp-format="{0:MM/dd/yyyy}" placeholder="MM/DD/YYYY" autocomplete="off" asp-for="ageDifferenceModel.FirstPersonDob" />
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt"></i></span>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text bg-radiospan AnsiSpan hide" id="basic-addon2">2300 DTP~434 </span>
+                                                        <span class="input-group-text bg-radiospan CmsSpan hide" id="basic-addon2">Box 6</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14">Second Person Name & Date</label>
+                                            <div class="col-sm-7">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"><img src="~/CustomImages/distance.png" width="30" /></span>
+                                                    <input type="text"
+                                                           class="form-control" asp-for="fuelModel.DailyDistenceTravel"
+                                                           aria-label="Amount (to the nearest dollar)" autofocus />
+
+                                                    <span class="input-group-text font-bold font-14" style="padding-left: 1.5rem;"><span style="padding-right: 17px;">KM</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-16">Date Of Birth</label>
+                                            @*<div class="col-sm-7">
+                                                    <div class="input-group input-group-md">
+                                                        <input class="form-control date-picker txtborder" type="text" asp-format="{0:dd/MM/yyyy}" placeholder="DD/MM/YYYY" autocomplete="off" asp-for="ageModel.DateOfBirth" />
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar-alt"></i></span>
+                                                        </div>
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text bg-radiospan AnsiSpan hide" id="basic-addon2">2300 DTP~434 </span>
+                                                            <span class="input-group-text bg-radiospan CmsSpan hide" id="basic-addon2">Box 6</span>
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="staticEmail" class="col-sm-5 col-form-label font-bold font-14"></label>
+                                            <div class="col-sm-7">
+                                                <div class="row">
+                                                    <div class="col-sm-6"><button class="btn text-white" style="background-color: #0248B9 !important;width:100%" type="submit"><i class="fa fa-calculator"></i> CALCULATE </button>&nbsp;</div>
+                                                    <div class="col-sm-6"><button class="btn text-white" style="background-color: #0248B9 !important;width:100%" type="button" onClick="refreshPage()"><i class="fa fa-spinner"></i> RESET </button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @*<script src="~/js/Custom/Rehab.Common.js" asp-append-version="true"></script>*@
+    <script>
+        $(document).ready(function () {
+            $('.date-picker').datepicker({
+                orientation: "bottom",
+                autoclose: true,
+                format: 'mm/dd/yyyy',
+                todayHighlight: true,
+            });
+
+            // Check if age calculator is active and switch tabs accordingly
+            if ('@Model.ageModel.IsAgeCalculator' == 'True') {
+                $("#navpills-1").removeClass("active");
+                $("#tab1").removeClass("active");
+                $("#navpills-2").addClass("active");
+                $("#tab2").addClass("active");
+            }
+        });
+
+        function UrlContent(url) {
+            return "@Url.Content("~/")" + url;
+        }
+    </script>
+    <script>
+        // Parse unobtrusive validation for fuel calculator form
+        $.validator.unobtrusive.parse($("#fuelCalculatorFormId"));
+
+        // Function to refresh page
+        function refreshPage() {
+            window.location.href = UrlContent("Fuel/Index") + "?reset=" + true;
+        }
+    </script>
+
+}

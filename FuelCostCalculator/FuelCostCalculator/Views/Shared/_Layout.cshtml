@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Calculator</title>
+    <link href="~/css/themes/DashboardCss.css" rel="stylesheet" />
+    <link href="~/css/themes/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/fixedcolumns/4.2.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+    <link href="~/css/themes/site.css" rel="stylesheet" />
+    <link href="~/css/themes/style.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link href="~/css/themes/select2.min.css" rel="stylesheet" />
+    <link href="~/css/themes/bootstrap-duallistbox.min.css" rel="stylesheet" />
+    <link href="~/css/themes/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/css/themes/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/css/themes/daterangepicker.css" rel="stylesheet" />
+    <link href="~/css/themes/toastr.min.css" rel="stylesheet" />
+    <link href="~/css/themes/steps.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicon.ico" asp-append-version="true">
+</head>
+<body>
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FuelCalculator</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>*@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container font-10" style="color: #0248B9;font-weight:bold">
+            &copy; 2023 - FUEL COST CALCULATOR - Fueled by Innovation, Driven by Efficiency
+        </div>
+    </footer>
+    <script src="~/js/themes/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/site.js" asp-append-version="true"></script>
+    <script src="~/js/themes/app.init.horizontal-fullwidth.js" asp-append-version="true"></script>
+    <script src="~/js/themes/app.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/app-style-switcher.horizontal.js" asp-append-version="true"></script>
+    <script src="~/js/themes/perfect-scrollbar.jquery.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/sparkline.js" asp-append-version="true"></script>
+    <script src="~/js/themes/waves.js" asp-append-version="true"></script>
+    <script src="~/js/themes/sidebarmenu.js" asp-append-version="true"></script>
+    <script src="~/js/themes/custom.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/sweetalert2.all.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/rowgroup/1.1.2/js/dataTables.rowGroup.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.2.1/js/dataTables.fixedColumns.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/datatable-advanced.init.js" asp-append-version="true"></script>
+    <script src="~/js/themes/select2.full.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/select2.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/toastr.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/jquery.bootstrap-duallistbox.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/jquery.validate.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+    <script src="~/js/themes/jquery.inputmask.bundle.min.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" asp-append-version="true" crossorigin=" anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/themes/inputmask.extensions.js" asp-append-version="true"></script>
+    <script src="~/js/themes/inputmask.numeric.extensions.js" asp-append-version="true"></script>
+    <script src="~/js/themes/inputmask.date.extensions.js" asp-append-version="true"></script>
+    <script src="~/js/themes/jquery.inputmask.js" asp-append-version="true"></script>
+    <script src="~/js/themes/bootstrap-datepicker.min.js" asp-append-version="true"></script>
+    <script src="~/js/themes/daterangepicker.js" asp-append-version="true"></script>
+    <script>
+    function UrlContent(url) {
+        return "@Url.Content("~/")" + url
+    }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
