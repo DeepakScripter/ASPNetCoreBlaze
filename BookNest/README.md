@@ -1,4 +1,4 @@
-````markdown
+
 # YtBookStore 📚
 
 YtBookStore is a web application for managing books, authors, genres, and publishers. This version has been upgraded to .NET 8.0.
@@ -10,7 +10,7 @@ YtBookStore is a web application for managing books, authors, genres, and publis
    ```bash
    git clone https://github.com/rd003/YtBookStore.git
    ```
-````
+
 
 2. **Update the connection string:**
 
