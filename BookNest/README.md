@@ -8,7 +8,7 @@ YtBookStore is a web application for managing books, authors, genres, and publis
 1. **Clone the project:**
 
    ```bash
-  https://github.com/DeepakScripter/ASPNetCoreBlaze/tree/3a04c8966e51598fd3e3d548425e6157a442538c/BookNest
+     https://github.com/DeepakScripter/ASPNetCoreBlaze/tree/3a04c8966e51598fd3e3d548425e6157a442538c/BookNest
    ```
 
 
